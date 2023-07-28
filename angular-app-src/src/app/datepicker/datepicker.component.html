@@ -1,0 +1,21 @@
+<div class="calendar-input">
+<mat-form-field appearance="outline">
+    <mat-label *ngIf="formControl.value === null">No Date</mat-label>
+    <mat-label *ngIf="formControl.value !== null">{{ formControl.value | date: 'mediumDate'}}</mat-label>
+    <mat-datepicker-toggle class="mat-btn" matIconPrefix [disabled]="false" [for]="picker"></mat-datepicker-toggle>
+    <input [formControl]="formControl" (click)="picker.open()" matInput [matDatepicker]="picker" >
+      <mat-datepicker touchUi #picker [disabled]="false"> 
+        <!-- <mat-datepicker-actions matIconPrefix>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+          
+        </mat-datepicker-actions>  -->
+      </mat-datepicker>
+  </mat-form-field>
+<div class="word-dates">
+  <div class="word-date" *ngFor="let wordDate of wordDates; let i = index">
+    <button type="button" mat-button (click)="handleWordDate(i)" color="primary">{{ wordDate.name }}</button>
+  </div>
+</div>
+  
+</div>

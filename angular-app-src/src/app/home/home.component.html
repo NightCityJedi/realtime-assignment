@@ -1,0 +1,70 @@
+<div class="page-header">Employees List</div>
+<div *ngIf="hasEmployees()">
+    <div class="employees_container">
+        <div class="employee-layout">
+            <!-- <div class="employee-header">Current Employees</div>
+            <div class="employee-content">
+                <div *ngFor="let employee of myEmployeeService.currentEmployees()" class="employee-card">
+                    <div class="employee-name">{{ employee.employeeName }}</div>
+                    <div class="employee-role">{{ employee.role }}</div>
+                    <div class="employee-date">{{ employee.startAt | date: 'mediumDate'}}</div>
+                </div>
+            </div> -->
+            <div class="employee-header">Current Employees</div>
+            <div cdkDropList class="employee-content">
+                    <div (click)="handleEditClick(employee)" cdkDrag cdkDragLockAxis="x" (cdkDragEnded)="handleDragEnded(employee)" *ngFor="let employee of myEmployeeService.currentEmployees()" class="employee-card">
+                        <div class="employee-placeholder" *cdkDragPlaceholder>
+                            <button class="employee-delete-button"  mat-icon-button >
+                                <mat-icon >delete</mat-icon>
+                            </button>
+                        </div>
+                        <div class="employee-name">{{ employee.employeeName }}</div>
+                        <div class="employee-role">{{ employee.role }}</div>
+                        <div class="employee-date">{{ employee.startAt | date: 'mediumDate'}}</div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="employees_container">
+        <div class="employee-layout">
+            <!-- <div class="employee-header">Previous Employees</div>
+            <div *ngFor="let employee of myEmployeeService.previousEmployees()" class="employee-card">
+                <div class="employee-name">{{ employee.employeeName }}</div>
+                <div class="employee-role">{{ employee.role }}</div>
+                <div class="employee-dates">
+                    <div class="employee-date">{{ employee.startAt | date: 'mediumDate'}}</div>
+                    <div style="color: grey"> - </div>
+                    <div class="employee-date">{{ employee.endAt | date: 'mediumDate'}}</div>
+                </div>
+            </div> -->
+            <div class="employee-header">Previous Employees</div>
+            <div cdkDropList class="employee-content">
+                    <div (click)="handleEditClick(employee)" cdkDrag cdkDragLockAxis="x" (cdkDragEnded)="handleDragEnded(employee)" *ngFor="let employee of myEmployeeService.previousEmployees()" class="employee-card">
+                        <div class="employee-placeholder" *cdkDragPlaceholder>
+                            <button class="employee-delete-button"  mat-icon-button >
+                                <mat-icon >delete</mat-icon>
+                            </button>
+                        </div>
+                        <div class="employee-name">{{ employee.employeeName }}</div>
+                        <div class="employee-role">{{ employee.role }}</div>
+                        <div class="employee-dates">
+                            <div class="employee-date">{{ employee.startAt | date: 'mediumDate'}}</div>
+                            <div style="color: grey"> - </div>
+                            <div class="employee-date">{{ employee.endAt | date: 'mediumDate'}}</div>
+                        </div>
+                    </div>
+            </div>
+        </div>  
+    </div>
+</div>
+<div class="no-results" *ngIf="!hasEmployees()">
+    <span>No Employee Records Found</span>
+</div>
+
+
+<button id="add-employee" mat-icon-button routerLink="/add-employee">
+    <mat-icon>
+        add
+    </mat-icon>
+</button>

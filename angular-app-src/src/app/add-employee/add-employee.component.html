@@ -1,0 +1,33 @@
+<form (ngSubmit)="onSave()" [formGroup]="myEmployeeFormService.form()" class="employee-form">
+    <div *ngIf="myEmployeeService.formType() === 'add'" class="page-header">Add Employee Details</div>
+    <div *ngIf="myEmployeeService.formType() === 'edit'" class="page-header page-action">
+        <span>
+            Edit Employee Details
+        </span>
+        <button type="button" class="delete-button" (click)="handleDelete()" mat-button>
+            <mat-icon class="delete-icon">
+                delete
+            </mat-icon>
+        </button> 
+    </div>
+    <mat-form-field class="employee-form-field">
+        <mat-label>Employee Name</mat-label>
+        <mat-icon color="primary" matIconPrefix fontIcon="person"></mat-icon>
+        <input class="employee-form-input" formControlName="employeeName" type="text" matInput #employeeNameFieldInput>
+    </mat-form-field>
+    <mat-form-field class="employee-form-field">
+        <mat-icon color="primary" matIconPrefix fontIcon="luggage"></mat-icon>
+        <mat-label>Select Role</mat-label>
+        <mat-select formControlName="role" >
+            <mat-option *ngFor="let role of roles" [value]="role.value">
+                {{ role.viewValue }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <app-datepicker [key]="start"></app-datepicker>
+    <app-datepicker [key]="end"></app-datepicker>
+    <div class="form-actions">
+        <button type="button" mat-button (click)="onCancel()">Cancel</button>
+        <button type="submit" mat-raised-button color="primary">Save</button>
+    </div>
+</form>

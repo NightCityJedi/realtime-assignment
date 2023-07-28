@@ -1,0 +1,39 @@
+@use '../mat-ext.scss';
+@import '../globals.scss';
+
+$form-child-padding-size: 5px;
+$form-padding-size: 10px;
+$btn-padding-size: 5px;
+
+mat-hint {
+    color: $grey;
+    padding: $form-child-padding-size;
+}
+
+mat-form-field {
+    padding: $form-padding-size;
+    width: 98%;
+}
+
+mat-label {
+    padding: $form-child-padding-size;
+}
+
+input {
+    padding: 5px;
+    margin: 10px;
+}
+
+// mat-card {
+//     width: 90%;
+//     margin-left: 10px;
+// }
+
+.calendar-input {
+    padding: 25px 0px;
+}
+
+.word-dates {
+    display: flex;
+    flex-direction: row;
+}

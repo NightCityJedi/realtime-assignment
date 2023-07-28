@@ -1,0 +1,51 @@
+@import '../globals.scss';
+
+.employee-form {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin: 5px;
+    width: 100%;
+}
+
+.employee-form-field {
+    padding: 10px;
+}
+
+.employee-form-input {
+    padding: 5px;
+    color: $blue;
+}
+
+.form-actions {
+    display: flex;
+    padding: 5px;
+    margin: 5px;
+    align-self: flex-end;
+}
+
+button {
+    margin: 10px;
+}
+
+.page-header {
+    padding: 10px;
+    color: white;
+    background-color: $blue;
+    font-size: 25px;
+}
+
+.page-action {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-icon {
+    color: white;
+}
+
+.delete-button {
+    justify-content: space-between;
+}
